@@ -43,27 +43,96 @@
       </div>
     </section>
 
-    <section id="profil" class="section-light">
-      <h2>Crée ton profil Brigade</h2>
-      <p class="description">
-        Rejoins le réseau des talents gastronomiques du Québec.  
-        Le formulaire d’inscription arrive bientôt.
-      </p>
-      <div class="form-placeholder">
-        <p>[ Formulaire en développement ]</p>
+   <section id="profil" class="section-light">
+  <h2 id="profil-titre">Crée ton profil brigade.</h2>
+  <p id="profil-description" class="description">
+    Rejoins le réseau des talents gastronomiques du Québec.
+  </p>
+
+  <div class="form-container">
+    <!-- 👩‍🍳 FORMULAIRE EMPLOYÉ -->
+    <form class="form-demo form-employe">
+      <div class="input-group">
+        <label>Nom complet</label>
+        <input type="text" placeholder="Prénom Nom">
       </div>
-    </section>
+
+      <div class="input-group">
+        <label>Poste recherché</label>
+        <input type="text" placeholder="Serveur·se, cuisinier·ère, sommelier·ère...">
+      </div>
+
+      <div class="input-group">
+        <label>Expérience</label>
+        <select>
+          <option>Moins de 1 an</option>
+          <option>1 à 3 ans</option>
+          <option>3 à 5 ans</option>
+          <option>5 ans et plus</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Disponibilité</label>
+        <input type="text" placeholder="Temps plein, soir, week-end...">
+      </div>
+
+      <div class="input-group">
+        <label>Présentation</label>
+        <textarea placeholder="Parle-nous de ton parcours et de ta passion pour la restauration..."></textarea>
+      </div>
+
+      <button type="button" class="cta-form">Enregistrer mon profil</button>
+    </form>
+
+    <!-- 🏛️ FORMULAIRE EMPLOYEUR -->
+    <form class="form-demo form-employeur hidden">
+      <div class="input-group">
+        <label>Nom de l’établissement</label>
+    <input type="text" placeholder="...">
+        </div>
+
+      <!-- <div class="input-group">
+        <label>Poste à pourvoir</label>
+        <input type="text" placeholder="Chef de partie, gérant, barman...">
+      </div> -->
+
+      <div class="input-group">
+        <label>Type d’établissement</label>
+        <select>
+          <option>Restaurant</option>
+          <option>Hôtel</option>
+          <option>Autre</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Localisation</label>
+        <input type="text" placeholder="Ville, quartier...">
+      </div>
+
+      <div class="input-group">
+        <label>Description du poste</label>
+        <textarea placeholder="Présente ton établissement, l’équipe, et les attentes du poste..."></textarea>
+      </div>
+
+      <button type="button" class="cta-form">Publier une offre</button>
+    </form>
+  </div>
+</section>
+
+
 
 <section id="premium" class="section-premium">
   <div class="premium-bg-glow"></div>
 
   <div class="premium-container">
-    <h2>brigade<span class="accent">+</span></h2>
+    <h2>brigade<span class="accent"> +</span></h2>
     <p class="premium-slogan">
       L’accès au réseau exclusif des talents et maisons d’exception.
     </p>
 
-    <div class="premium-cards">
+    <!-- <div class="premium-cards">
       <div class="premium-card">
         <h3>Gratuit</h3>
         <p class="price">0 $ / mois</p>
@@ -97,7 +166,7 @@
         </ul>
         <a href="#" class="cta-premium-outline">Contactez-nous</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -122,11 +191,28 @@
 </body>
 
 <script>
-const toggle = document.getElementById('modeToggle');
-toggle.addEventListener('change', () => {
-  document.body.classList.toggle('employeur-mode', toggle.checked);
-});
+  const toggle = document.getElementById('modeToggle');
+  const titre = document.getElementById('profil-titre');
+  const desc = document.getElementById('profil-description');
+  const formEmploye = document.querySelector('.form-employe');
+  const formEmployeur = document.querySelector('.form-employeur');
+
+  toggle.addEventListener('change', () => {
+    const isEmployeur = toggle.checked;
+    document.body.classList.toggle('employeur-mode', isEmployeur);
+
+    // Afficher / masquer les formulaires
+    formEmploye.classList.toggle('hidden', isEmployeur);
+    formEmployeur.classList.toggle('hidden', !isEmployeur);
+
+    // Modifier les textes
+    titre.textContent = isEmployeur ? 'Publie ta maison brigade.' : 'Crée ton profil brigade.';
+    desc.textContent = isEmployeur
+      ? 'Accède au réseau exclusif de talents en gastronomie.'
+      : 'Rejoins le réseau des talents gastronomiques du Québec.';
+  });
 </script>
+
 
 
 </html>

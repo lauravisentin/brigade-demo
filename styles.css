@@ -37,8 +37,9 @@ header {
 
 h1 {
   font-size: 4rem;
-  font-weight: 600;
+  font-family:"Jomolhari", serif;
   letter-spacing: -0.02em;
+  font-weight:200;
   color: var(--text-light);
   margin-bottom: 16px;
 }
@@ -201,6 +202,111 @@ body:not(.employeur-mode) .mode-label.employe {
   color: var(--accent);
   font-weight: 500;
   background: rgba(255, 255, 255, 0.02);
+  font-family: "Inter", sans-serif;
+}
+
+
+/* ---------- FORMULAIRES ---------- */
+.form-container {
+  max-width: 700px;
+  margin: 40px auto 0;
+  position: relative;
+}
+
+.form-demo {
+  background: #111;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.input-group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #6d6d6d;
+  font-size: 0.95rem;
+}
+.cta-form {
+  display: inline-block;
+  color:var(--accent);
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--accent);
+  border-radius: 50px;
+  background: var(--bg-dark);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size:var(--text-light);
+  padding-top:1rem;
+  margin-top:1rem;
+}
+
+.cta-form:hover {
+  transform: scale(1.03);
+  background: var(--accent);
+  color: #000;
+}
+
+/* ---------- MODE EMPLOYEUR ---------- */
+/* Mode employeur */
+body.employeur-mode .form-demo {
+  background: #111;
+}
+
+body.employeur-mode #profil-titre {
+  color: #fff;
+}
+
+body.employeur-mode .input-group label {
+  color: #9499db;
+}
+
+body.employeur-mode .cta-form {
+  background: #555BB5;
+  color: #fff;
 }
 
 /* ---------- SECTION PREMIUM ---------- */
@@ -213,12 +319,15 @@ body:not(.employeur-mode) .mode-label.employe {
 
 .section-premium h2 {
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 200;
   color: var(--text-light);
+  font-family:"Jomolhari", serif;
 }
 
 .section-premium .accent {
   color: var(--premium); /* doré vif */
+  font-weight:200;
+  font-family: "Inter", sans-serif;
 }
 
 .premium-slogan {
@@ -228,8 +337,9 @@ body:not(.employeur-mode) .mode-label.employe {
   margin-bottom: 70px;
 }
 
+
 /* ---------- PREMIUM CARDS ---------- */
-.premium-cards {
+/* .premium-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -282,7 +392,7 @@ body:not(.employeur-mode) .mode-label.employe {
   margin: 10px 0;
   color: var(--text-muted);
   font-size: 1rem;
-}
+} */
 
 /* ---------- BUTTONS ---------- */
 .cta-premium,
@@ -312,11 +422,6 @@ body:not(.employeur-mode) .mode-label.employe {
   border: 1px solid var(--premium);
   color: var(--premium);
   background: transparent;
-}
-
-.cta-premium-outline:hover {
-  background: var(--premium);
-  color: #000;
 }
 
 /* ---------- FOOTER ---------- */
