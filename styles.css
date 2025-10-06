@@ -1,0 +1,346 @@
+:root {
+  --bg-dark: #0b0b0b;
+  --bg-light: #161616;
+  --bg-premium: #1a1a1a;
+  --text-light: #f5f5f5;
+  --text-muted: #9f9f9f;
+  --accent: #e1a87a; /* doré/cuivré doux */
+  --premium: #FFB200; /* doré vif pour section premium */
+  --accent-contrast: #555BB5; /* violet mode employeur */
+  --max-width: 1100px;
+  --radius: 16px;
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  padding: 140px 20px 100px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid #1c1c1c;
+  position: relative;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.sous-titre {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 34px;
+  border-radius: 40px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ---------- TOGGLE ---------- */
+.toggle-container {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.mode-label {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  border-radius: 34px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* état activé (violet) */
+input:checked + .slider {
+  background-color: var(--accent-contrast);
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* étiquette active en violet */
+body.employeur-mode .mode-label.employeur {
+  color: var(--accent-contrast);
+}
+body:not(.employeur-mode) .mode-label.employe {
+  color: var(--accent);
+}
+
+/* ---------- SECTION VISION ---------- */
+#vision {
+  background: var(--bg-light);
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+#vision .bloc {
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: left;
+}
+
+#vision h3 {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+#vision p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ---------- SECTION PROFIL ---------- */
+#profil {
+  background: #111;
+  padding: 140px 20px;
+  text-align: center;
+}
+
+#profil h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-light);
+}
+
+#profil .description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+#profil .form-placeholder {
+  margin: 0 auto;
+  padding: 50px;
+  max-width: 600px;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ---------- SECTION PREMIUM ---------- */
+.section-premium {
+  background: var(--bg-premium);
+  padding: 120px 20px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.section-premium h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.section-premium .accent {
+  color: var(--premium); /* doré vif */
+}
+
+.premium-slogan {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 70px;
+}
+
+/* ---------- PREMIUM CARDS ---------- */
+.premium-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.premium-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  width: 320px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.premium-card:hover {
+  border-color: var(--premium);
+}
+
+.premium-card.active {
+  border-color: var(--premium);
+  background: #151515;
+}
+
+.premium-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--premium);
+}
+
+.premium-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.premium-card li {
+  margin: 10px 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.cta-premium,
+.cta-premium-outline {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  letter-spacing: 0.3px;
+  width:200px;
+  text-align: center;
+}
+
+.cta-premium {
+  background: var(--premium);
+  color: #000;
+  border: none;
+}
+
+.cta-premium:hover {
+  opacity: 0.9;
+}
+
+.cta-premium-outline {
+  border: 1px solid var(--premium);
+  color: var(--premium);
+  background: transparent;
+}
+
+.cta-premium-outline:hover {
+  background: var(--premium);
+  color: #000;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid #1f1f1f;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- MODE EMPLOYEUR ---------- */
+body.employeur-mode {
+  --accent: var(--accent-contrast); /* violet pour CTA, bordures */
+}
+
+body.employeur-mode .cta,
+body.employeur-mode .cta-premium {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+body.employeur-mode .cta-premium-outline {
+  border-color: var(--accent);
+  color: var(--accent);
+}

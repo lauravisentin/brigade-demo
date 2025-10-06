@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Brigade — Réseau gastronomique</title>
+</head>
+
+<body>
+  <header>
+    <h1>brigade.</h1>
+    <div class="toggle-container">
+        <span class="mode-label employe">Employé</span>
+        <label class="switch">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="mode-label employeur">Employeur</span>
+    </div>
+
+    <p class="sous-titre">
+      La rencontre entre les talents et la gastronomie d’exception.
+    </p>
+    <a href="#demo" class="cta">Découvrir le prototype</a>
+  </header>
+
+  <main>
+    <section id="vision" class="section-dark">
+      <div class="bloc">
+        <h3>Une expérience fluide</h3>
+        <p>Swipez, matchez, recrutez — aussi simple qu’un geste.</p>
+      </div>
+      <div class="bloc">
+        <h3>Un réseau d’excellence</h3>
+        <p>
+          Chefs, sommeliers et gestionnaires réunis dans une plateforme humaine.
+        </p>
+      </div>
+      <div class="bloc">
+        <h3>Une sélection sur mesure</h3>
+        <p>Les meilleurs talents, connectés aux meilleures tables.</p>
+      </div>
+    </section>
+
+    <section id="profil" class="section-light">
+      <h2>Crée ton profil Brigade</h2>
+      <p class="description">
+        Rejoins le réseau des talents gastronomiques du Québec.  
+        Le formulaire d’inscription arrive bientôt.
+      </p>
+      <div class="form-placeholder">
+        <p>[ Formulaire en développement ]</p>
+      </div>
+    </section>
+
+<section id="premium" class="section-premium">
+  <div class="premium-bg-glow"></div>
+
+  <div class="premium-container">
+    <h2>brigade<span class="accent">+</span></h2>
+    <p class="premium-slogan">
+      L’accès au réseau exclusif des talents et maisons d’exception.
+    </p>
+
+    <div class="premium-cards">
+      <div class="premium-card">
+        <h3>Gratuit</h3>
+        <p class="price">0 $ / mois</p>
+        <ul>
+          <li>Profil visible aux recruteurs</li>
+          <li>Messagerie limitée</li>
+          <li>Jusqu’à 3 candidatures / semaine</li>
+        </ul>
+        <a href="#" class="cta-premium-outline">Essayer</a>
+      </div>
+
+      <div class="premium-card active">
+        <h3>Professionnel</h3>
+        <p class="price accent">9,99 $ / mois</p>
+        <ul>
+          <li>Visibilité prioritaire</li>
+          <li>Accès partenaires certifiés</li>
+          <li>Candidatures illimitées</li>
+          <li>Badge vérifié</li>
+        </ul>
+        <a href="#" class="cta-premium">Devenir membre</a>
+      </div>
+
+      <div class="premium-card elite">
+        <h3>Élite</h3>
+        <p class="price">19,99 $ / mois</p>
+        <ul>
+          <li>Profil en vedette sur la page d’accueil</li>
+          <li>Invitations à des événements exclusifs</li>
+          <li>Accès anticipé aux offres d’élite</li>
+        </ul>
+        <a href="#" class="cta-premium-outline">Contactez-nous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Prototype (facultatif pour la démo) -->
+    <!--
+    <section id="demo" class="section-dark">
+      <iframe
+        style="border: none; border-radius: 16px;"
+        width="90%"
+        height="600"
+        src="https://embed.figma.com/proto/om1VDhHCoYSyMe4rzcYCfD/brigade.?page-id=151%3A127&node-id=236-1107&p=f&viewport=-3018%2C1263%2C0.23&scaling=scale-down&content-scaling=fixed&starting-point-node-id=236%3A1101&embed-host=share"
+        allowfullscreen
+      ></iframe>
+    </section>
+    -->
+  </main>
+
+  <footer>
+    <p>© 2025 brigade. — Projet en développement</p>
+  </footer>
+</body>
+
+<script>
+const toggle = document.getElementById('modeToggle');
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('employeur-mode', toggle.checked);
+});
+</script>
+
+
+</html>
