@@ -1,6 +1,6 @@
 :root {
   --bg-dark: #0b0b0b;
-  --bg-light: #161616;
+  --bg-medium: #111;
   --bg-premium: #1a1a1a;
   --text-light: #f5f5f5;
   --text-muted: #9f9f9f;
@@ -18,6 +18,7 @@
   padding: 0;
 }
 
+
 body {
   background: var(--bg-dark);
   color: var(--text-light);
@@ -28,6 +29,10 @@ body {
 
 /* ---------- HEADER ---------- */
 header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 140px 20px 100px;
   background: var(--bg-dark);
@@ -75,25 +80,38 @@ h1 {
 
 /* ---------- TOGGLE ---------- */
 .toggle-container {
-  position: absolute;
-  top: 30px;
-  right: 40px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
+  gap: 14px; /* plus d'espace entre les labels */
+  font-size: 1.15rem; /* taille du texte augmentée */
   color: var(--text-muted);
+  justify-content: center; /* centre horizontalement */
+  margin: 40px auto; /* espace autour pour respiration visuelle */
+  transform: scale(1.1); /* légère mise en avant globale */
 }
 
 .mode-label {
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
+/* rend le label actif un peu plus grand */
+body.employeur-mode .mode-label.employeur,
+body:not(.employeur-mode) .mode-label.employe {
+  transform: scale(1.05);
+}
+
+/* SWITCH */
 .switch {
   position: relative;
-  width: 44px;
-  height: 24px;
+  width: 70px;   /* avant 44px */
+  height: 36px;  /* avant 24px */
+  transition: transform 0.3s ease;
+}
+
+.switch:hover {
+  transform: scale(1.05);
 }
 
 .switch input {
@@ -111,30 +129,34 @@ h1 {
   bottom: 0;
   background-color: #333;
   border-radius: 34px;
-  transition: 0.3s;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
 }
 
 .slider:before {
   content: "";
   position: absolute;
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
+  height: 24px; /* avant 16px */
+  width: 24px;  /* avant 16px */
+  left: 6px;
+  bottom: 6px;
   background-color: #fff;
   border-radius: 50%;
-  transition: 0.3s;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* état activé (violet) */
 input:checked + .slider {
   background-color: var(--accent-contrast);
-}
-input:checked + .slider:before {
-  transform: translateX(20px);
+  box-shadow: 0 0 10px rgba(85,91,181,0.5);
 }
 
-/* étiquette active en violet */
+input:checked + .slider:before {
+  transform: translateX(34px); /* adapté à la nouvelle largeur */
+  background-color: #fff;
+}
+
+/* labels actifs */
 body.employeur-mode .mode-label.employeur {
   color: var(--accent-contrast);
 }
@@ -142,9 +164,10 @@ body:not(.employeur-mode) .mode-label.employe {
   color: var(--accent);
 }
 
+
 /* ---------- SECTION VISION ---------- */
 #vision {
-  background: var(--bg-light);
+  /* background: var(--bg-light); */
   padding: 120px 20px;
   display: flex;
   justify-content: center;
@@ -173,9 +196,42 @@ body:not(.employeur-mode) .mode-label.employe {
   line-height: 1.5;
 }
 
+.gradient-employeur {
+    background: linear-gradient(252deg, var(--accent-contrast), #111);
+    background-size: 100% 100%;
+
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+}
+.gradient-employe {
+    background: linear-gradient(252deg, #1a1a1a, #111);
+    background-size: 100% 100%;
+
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    color:black;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:37% 0%}
+    50%{background-position:64% 100%}
+    100%{background-position:37% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:37% 0%}
+    50%{background-position:64% 100%}
+    100%{background-position:37% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:37% 0%}
+    50%{background-position:64% 100%}
+    100%{background-position:37% 0%}
+}
 /* ---------- SECTION PROFIL ---------- */
 #profil {
-  background: #111;
+  background: var(--bg-medium);
   padding: 140px 20px;
   text-align: center;
 }
@@ -214,7 +270,7 @@ body:not(.employeur-mode) .mode-label.employe {
 }
 
 .form-demo {
-  background: #111;
+  background: var(--bg-medium);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
@@ -275,7 +331,7 @@ body:not(.employeur-mode) .mode-label.employe {
   padding: 14px;
   border: 1px solid var(--accent);
   border-radius: 50px;
-  background: var(--bg-dark);
+  background: var(--bg-medium);
   color: var(--accent);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -285,7 +341,6 @@ body:not(.employeur-mode) .mode-label.employe {
 }
 
 .cta-form:hover {
-  transform: scale(1.03);
   background: var(--accent);
   color: #000;
 }
@@ -293,7 +348,7 @@ body:not(.employeur-mode) .mode-label.employe {
 /* ---------- MODE EMPLOYEUR ---------- */
 /* Mode employeur */
 body.employeur-mode .form-demo {
-  background: #111;
+  background: var(--bg-medium);
 }
 
 body.employeur-mode #profil-titre {
@@ -311,7 +366,7 @@ body.employeur-mode .cta-form {
 
 /* ---------- SECTION PREMIUM ---------- */
 .section-premium {
-  background: var(--bg-premium);
+  background: var(--bg-dark);
   padding: 120px 20px;
   text-align: center;
   border-top: 1px solid #222;
@@ -324,17 +379,28 @@ body.employeur-mode .cta-form {
   font-family:"Jomolhari", serif;
 }
 
-.section-premium .accent {
-  color: var(--premium); /* doré vif */
-  font-weight:200;
-  font-family: "Inter", sans-serif;
-}
-
 .premium-slogan {
   margin-top: 10px;
   color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 70px;
+}
+
+.icon-premium {
+  width: 34px;
+  height: 34px;
+  vertical-align: middle;
+  margin-left: 6px;
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  color: var(--premium); /* doré vif */
+  font-size:2rem;
+}
+
+.section-premium h2:hover .icon-premium {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.4);
 }
 
 
@@ -440,6 +506,13 @@ body.employeur-mode {
 
 body.employeur-mode .cta,
 body.employeur-mode .cta-premium {
+  background: var(--bg-dark);
+  color: #9499db;
+  border-color: var(--accent);
+}
+
+body.employeur-mode .cta:hover,
+body.employeur-mode .cta-premium:hover {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);

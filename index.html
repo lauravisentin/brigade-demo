@@ -10,6 +10,10 @@
 <body>
   <header>
     <h1>brigade.</h1>
+    <p class="sous-titre">
+      La rencontre entre les talents et la gastronomie d’exception.
+    </p>
+
     <div class="toggle-container">
         <span class="mode-label employe">Employé</span>
         <label class="switch">
@@ -19,29 +23,29 @@
         <span class="mode-label employeur">Employeur</span>
     </div>
 
-    <p class="sous-titre">
-      La rencontre entre les talents et la gastronomie d’exception.
-    </p>
+
     <a href="#demo" class="cta">Découvrir le prototype</a>
   </header>
 
   <main>
     <section id="vision" class="section-dark">
-      <div class="bloc">
-        <h3>Une expérience fluide</h3>
-        <p>Swipez, matchez, recrutez — aussi simple qu’un geste.</p>
-      </div>
-      <div class="bloc">
-        <h3>Un réseau d’excellence</h3>
-        <p>
-          Chefs, sommeliers et gestionnaires réunis dans une plateforme humaine.
+    <div class="bloc">
+        <h3 id="vision1-titre">Une expérience fluide</h3>
+        <p id="vision1-texte">Swipez, matchez, recrutez — aussi simple qu’un geste.</p>
+    </div>
+    <div class="bloc">
+        <h3 id="vision2-titre">Un réseau d’excellence</h3>
+        <p id="vision2-texte">
+        Chefs, sommeliers et gestionnaires réunis dans une plateforme humaine.
         </p>
-      </div>
-      <div class="bloc">
-        <h3>Une sélection sur mesure</h3>
-        <p>Les meilleurs talents, connectés aux meilleures tables.</p>
-      </div>
-    </section>
+    </div>
+    <div class="bloc">
+        <h3 id="vision3-titre">Une sélection sur mesure</h3>
+        <p id="vision3-texte">
+        Les meilleurs talents, connectés aux meilleures tables.
+        </p>
+    </div>
+</section>
 
    <section id="profil" class="section-light">
   <h2 id="profil-titre">Crée ton profil brigade.</h2>
@@ -82,7 +86,7 @@
         <textarea placeholder="Parle-nous de ton parcours et de ta passion pour la restauration..."></textarea>
       </div>
 
-      <button type="button" class="cta-form">Enregistrer mon profil</button>
+      <button type="button" class="cta-form">Créer ma carte</button>
     </form>
 
     <!-- 🏛️ FORMULAIRE EMPLOYEUR -->
@@ -91,11 +95,6 @@
         <label>Nom de l’établissement</label>
     <input type="text" placeholder="...">
         </div>
-
-      <!-- <div class="input-group">
-        <label>Poste à pourvoir</label>
-        <input type="text" placeholder="Chef de partie, gérant, barman...">
-      </div> -->
 
       <div class="input-group">
         <label>Type d’établissement</label>
@@ -112,11 +111,11 @@
       </div>
 
       <div class="input-group">
-        <label>Description du poste</label>
-        <textarea placeholder="Présente ton établissement, l’équipe, et les attentes du poste..."></textarea>
+        <label>Description de l'établissement</label>
+        <textarea placeholder="Présente ton établissement, l’équipe, le style gastronomique..."></textarea>
       </div>
 
-      <button type="button" class="cta-form">Publier une offre</button>
+      <button type="button" class="cta-form">Créer ma carte</button>
     </form>
   </div>
 </section>
@@ -127,7 +126,12 @@
   <div class="premium-bg-glow"></div>
 
   <div class="premium-container">
-    <h2>brigade<span class="accent"> +</span></h2>
+    <h2>
+    brigade.
+    <span class="accent">
+        <img src="./icons/premium-sign.svg" alt="Icône premium" class="icon-premium">
+    </span>
+    </h2>
     <p class="premium-slogan">
       L’accès au réseau exclusif des talents et maisons d’exception.
     </p>
@@ -169,50 +173,11 @@
     </div> -->
   </div>
 </section>
-
-
-    <!-- Prototype (facultatif pour la démo) -->
-    <!--
-    <section id="demo" class="section-dark">
-      <iframe
-        style="border: none; border-radius: 16px;"
-        width="90%"
-        height="600"
-        src="https://embed.figma.com/proto/om1VDhHCoYSyMe4rzcYCfD/brigade.?page-id=151%3A127&node-id=236-1107&p=f&viewport=-3018%2C1263%2C0.23&scaling=scale-down&content-scaling=fixed&starting-point-node-id=236%3A1101&embed-host=share"
-        allowfullscreen
-      ></iframe>
-    </section>
-    -->
-  </main>
+</main>
 
   <footer>
     <p>© 2025 brigade. — Projet en développement</p>
   </footer>
 </body>
-
-<script>
-  const toggle = document.getElementById('modeToggle');
-  const titre = document.getElementById('profil-titre');
-  const desc = document.getElementById('profil-description');
-  const formEmploye = document.querySelector('.form-employe');
-  const formEmployeur = document.querySelector('.form-employeur');
-
-  toggle.addEventListener('change', () => {
-    const isEmployeur = toggle.checked;
-    document.body.classList.toggle('employeur-mode', isEmployeur);
-
-    // Afficher / masquer les formulaires
-    formEmploye.classList.toggle('hidden', isEmployeur);
-    formEmployeur.classList.toggle('hidden', !isEmployeur);
-
-    // Modifier les textes
-    titre.textContent = isEmployeur ? 'Publie ta maison brigade.' : 'Crée ton profil brigade.';
-    desc.textContent = isEmployeur
-      ? 'Accède au réseau exclusif de talents en gastronomie.'
-      : 'Rejoins le réseau des talents gastronomiques du Québec.';
-  });
-</script>
-
-
-
+<script src="./js/main.js"></script>
 </html>
