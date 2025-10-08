@@ -9,175 +9,92 @@
 
 <body>
   <header>
+    <!-- Bouton toggle -->
+    <label class="switch-brigade">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+
     <h1>brigade.</h1>
     <p class="sous-titre">
       La rencontre entre les talents et la gastronomie d’exception.
     </p>
-
-    <div class="toggle-container">
-        <span class="mode-label employe">Employé</span>
-        <label class="switch">
-            <input type="checkbox" id="modeToggle">
-            <span class="slider"></span>
-        </label>
-        <span class="mode-label employeur">Employeur</span>
-    </div>
-
-
-    <a href="#demo" class="cta">Découvrir le prototype</a>
+    <a href="#choix" class="cta">Créer ta carte</a>
   </header>
 
   <main>
-    <section id="vision" class="section-dark">
-    <div class="bloc">
-        <h3 id="vision1-titre">Une expérience fluide</h3>
-        <p id="vision1-texte">Swipez, matchez, recrutez — aussi simple qu’un geste.</p>
-    </div>
-    <div class="bloc">
-        <h3 id="vision2-titre">Un réseau d’excellence</h3>
-        <p id="vision2-texte">
-        Chefs, sommeliers et gestionnaires réunis dans une plateforme humaine.
-        </p>
-    </div>
-    <div class="bloc">
-        <h3 id="vision3-titre">Une sélection sur mesure</h3>
-        <p id="vision3-texte">
-        Les meilleurs talents, connectés aux meilleures tables.
-        </p>
-    </div>
-</section>
-
-   <section id="profil" class="section-light">
-  <h2 id="profil-titre">Crée ton profil brigade.</h2>
-  <p id="profil-description" class="description">
-    Rejoins le réseau des talents gastronomiques du Québec.
-  </p>
-
-  <div class="form-container">
-    <!-- 👩‍🍳 FORMULAIRE EMPLOYÉ -->
-    <form class="form-demo form-employe">
-      <div class="input-group">
-        <label>Nom complet</label>
-        <input type="text" placeholder="Prénom Nom">
-      </div>
-
-      <div class="input-group">
-        <label>Poste recherché</label>
-        <input type="text" placeholder="Serveur·se, cuisinier·ère, sommelier·ère...">
-      </div>
-
-      <div class="input-group">
-        <label>Expérience</label>
-        <select>
-          <option>Moins de 1 an</option>
-          <option>1 à 3 ans</option>
-          <option>3 à 5 ans</option>
-          <option>5 ans et plus</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Disponibilité</label>
-        <input type="text" placeholder="Temps plein, soir, week-end...">
-      </div>
-
-      <div class="input-group">
-        <label>Présentation</label>
-        <textarea placeholder="Parle-nous de ton parcours et de ta passion pour la restauration..."></textarea>
-      </div>
-
-      <button type="button" class="cta-form">Créer ma carte</button>
-    </form>
-
-    <!-- 🏛️ FORMULAIRE EMPLOYEUR -->
-    <form class="form-demo form-employeur hidden">
-      <div class="input-group">
-        <label>Nom de l’établissement</label>
-    <input type="text" placeholder="...">
+    <section id="choix" class="choix-inline">
+      <div class="choix-row">
+        <div class="choix-item active" id="option-pro">
+          <span>Professionnel·le</span>
         </div>
-
-      <div class="input-group">
-        <label>Type d’établissement</label>
-        <select>
-          <option>Restaurant</option>
-          <option>Hôtel</option>
-          <option>Autre</option>
-        </select>
+        <div class="choix-item" id="option-resto">
+          <span>Restaurateur·rice</span>
+        </div>
       </div>
+    </section>
 
-      <div class="input-group">
-        <label>Localisation</label>
-        <input type="text" placeholder="Ville, quartier...">
+    <section id="profil" class="section-light">
+      <h2 id="profil-titre">Crée ta carte, rejoins brigade.</h2>
+      <div class="form-container">
+        <form class="form-demo form-employe">
+          <div class="input-group">
+            <label>Nom complet</label>
+            <input type="text" placeholder="Prénom Nom" />
+          </div>
+          <div class="input-group">
+            <label>Poste recherché</label>
+            <input type="text" placeholder="Serveur·se, cuisinier·ère..." />
+          </div>
+          <div class="input-group">
+            <label>Expérience</label>
+            <select>
+              <option>Moins de 1 an</option>
+              <option>1 à 5 ans</option>
+              <option>5 à 15 ans</option>
+              <option>15 à 35 ans</option>
+              <option>35 à 50 ans</option>
+              <option>50 ans et +</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Disponibilité</label>
+            <input type="text" placeholder="Temps plein, soir..." />
+          </div>
+          <button type="button" class="cta-form">Créer ma carte</button>
+        </form>
+
+        <form class="form-demo form-employeur hidden">
+          <div class="input-group">
+            <label>Nom de l’établissement</label>
+            <input type="text" placeholder="Nom du restaurant..." />
+          </div>
+          <div class="input-group">
+            <label>Ville</label>
+            <input type="text" placeholder="Inscris la ville ici." />
+          </div>
+          <button type="button" class="cta-form">Créer ma carte</button>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <div class="input-group">
-        <label>Description de l'établissement</label>
-        <textarea placeholder="Présente ton établissement, l’équipe, le style gastronomique..."></textarea>
-      </div>
-
-      <button type="button" class="cta-form">Créer ma carte</button>
-    </form>
-  </div>
-</section>
-
-
-
-<section id="premium" class="section-premium">
-  <div class="premium-bg-glow"></div>
-
-  <div class="premium-container">
-    <h2>
-    brigade.
-    <span class="accent">
-        <img src="./icons/premium-sign.svg" alt="Icône premium" class="icon-premium">
-    </span>
-    </h2>
-    <p class="premium-slogan">
-      L’accès au réseau exclusif des talents et maisons d’exception.
-    </p>
-
-    <!-- <div class="premium-cards">
-      <div class="premium-card">
-        <h3>Gratuit</h3>
-        <p class="price">0 $ / mois</p>
-        <ul>
-          <li>Profil visible aux recruteurs</li>
-          <li>Messagerie limitée</li>
-          <li>Jusqu’à 3 candidatures / semaine</li>
-        </ul>
-        <a href="#" class="cta-premium-outline">Essayer</a>
-      </div>
-
-      <div class="premium-card active">
-        <h3>Professionnel</h3>
-        <p class="price accent">9,99 $ / mois</p>
-        <ul>
-          <li>Visibilité prioritaire</li>
-          <li>Accès partenaires certifiés</li>
-          <li>Candidatures illimitées</li>
-          <li>Badge vérifié</li>
-        </ul>
-        <a href="#" class="cta-premium">Devenir membre</a>
-      </div>
-
-      <div class="premium-card elite">
-        <h3>Élite</h3>
-        <p class="price">19,99 $ / mois</p>
-        <ul>
-          <li>Profil en vedette sur la page d’accueil</li>
-          <li>Invitations à des événements exclusifs</li>
-          <li>Accès anticipé aux offres d’élite</li>
-        </ul>
-        <a href="#" class="cta-premium-outline">Contactez-nous</a>
-      </div>
-    </div> -->
-  </div>
-</section>
-</main>
+  <section id="vision" class="section-dark">
+    <div class="bloc">
+      <h3 id="vision1-titre">Une expérience fluide</h3>
+    </div>
+    <div class="bloc">
+      <h3 id="vision2-titre">Un réseau d’excellence</h3>
+    </div>
+    <div class="bloc">
+      <h3 id="vision3-titre">Une sélection sur mesure</h3>
+    </div>
+  </section>
 
   <footer>
     <p>© 2025 brigade. — Projet en développement</p>
   </footer>
+
+  <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
 </html>

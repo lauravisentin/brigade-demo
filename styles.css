@@ -1,162 +1,299 @@
+/* =========================================
+   VARIABLES GLOBALES
+========================================= */
 :root {
   --bg-dark: #0b0b0b;
   --bg-medium: #111;
-  --bg-premium: #1a1a1a;
   --text-light: #f5f5f5;
   --text-muted: #9f9f9f;
-  --accent: #e1a87a; /* doré/cuivré doux */
-  --premium: #FFB200; /* doré vif pour section premium */
-  --accent-contrast: #555BB5; /* violet mode employeur */
-  --max-width: 1100px;
+  --accent: #e1a87a;
+  --accent-contrast: #555bb5;
+  --premium: #ffb200;
   --radius: 16px;
+  --max-width: 1100px;
+  --transition: 0.3s ease;
 }
 
-/* RESET */
+/* =========================================
+   RESET & BASE
+========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
 body {
-  background: var(--bg-dark);
+  background-color: var(--bg-dark);
   color: var(--text-light);
   font-family: "Inter", sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition);
 }
 
-/* ---------- HEADER ---------- */
+/* =========================================
+   HEADER
+========================================= */
 header {
+  position: relative;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 140px 20px 100px;
-  background: var(--bg-dark);
-  border-bottom: 1px solid #1c1c1c;
-  position: relative;
+  justify-content: center;
+  padding: 140px 20px 200px;
+  border-bottom: 1px solid #1D1D1D;
+  width: 100%;
+  height: 100vh;
 }
 
 h1 {
+  font-family: "Jomolhari", serif;
   font-size: 4rem;
-  font-family:"Jomolhari", serif;
   letter-spacing: -0.02em;
-  font-weight:200;
-  color: var(--text-light);
+  font-weight: 200;
   margin-bottom: 16px;
+  color: var(--text-light);
 }
 
-.sous-titre {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto 60px;
-  line-height: 1.6;
+.sous-titre{
+    font-size: 1.3rem;
 }
 
+/* ---------- CTA principal ---------- */
 .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   padding: 14px 34px;
+  margin-top: 100px;
   border-radius: 40px;
   border: 1px solid var(--accent);
   color: var(--accent);
-  background: transparent;
+  background-color: transparent;
   text-decoration: none;
   font-weight: 500;
+  transition: all var(--transition);
+}
+.cta:hover {
+  background-color: var(--accent);
+  color: #000;
+}
+.section-choice {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--bg-light, #111);
+  color: white;
+}
+
+.choice-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.choice-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 250px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.choice-card:hover {
+  background: #242424;
+  transform: translateY(-5px);
+}
+
+.choice-card img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.choice-card h3 {
+  color: var(--accent, #e1a87a);
+  margin-bottom: 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* SECTION GLOBALE */
+.choix-inline {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.choix-titre {
   font-size: 1rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+
+/* SECTION DE CHOIX (bandeau compact) */
+.choix-inline {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  height: 12vh; /* ✅ Hauteur réduite */
+  min-height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* CONTENEUR INLINE */
+.choix-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+header{
+  border:none;
+}
+#choix{
+  border:none;
+}
+/* BOUTONS DE CHOIX */
+.choix-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0b0b;
+  color: #a9a9a9;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.cta:hover {
-  background: var(--accent);
-  color: #000;
+.choix-item:first-child {
+  border-left: none;
 }
 
-/* ---------- TOGGLE ---------- */
+.choix-item:last-child {
+  border-right: none;
+}
+
+.choix-item.active {
+  background: #111;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.choix-item.active span::before {
+  content: "→ ";
+  color: #e1a87a;
+  opacity: 0.9;
+}
+
+.choix-item:hover {
+  background: #141414;
+  color: #fff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+
+/* =========================================
+   TOGGLE (Professionnel / Restaurateur)
+========================================= */
 .toggle-container {
   display: flex;
   align-items: center;
-  gap: 14px; /* plus d'espace entre les labels */
-  font-size: 1.15rem; /* taille du texte augmentée */
+  gap: 14px;
+  font-size: 1.1rem;
   color: var(--text-muted);
-  justify-content: center; /* centre horizontalement */
-  margin: 40px auto; /* espace autour pour respiration visuelle */
-  transform: scale(1.1); /* légère mise en avant globale */
+  transform: scale(1.05);
+}
+
+.toggle-container.top-right {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  margin: 0;
+  transform: none;
 }
 
 .mode-label {
   font-weight: 600;
-  transition: color 0.3s ease, transform 0.3s ease;
   letter-spacing: 0.3px;
+  transition: color var(--transition), transform var(--transition);
 }
 
-/* rend le label actif un peu plus grand */
 body.employeur-mode .mode-label.employeur,
 body:not(.employeur-mode) .mode-label.employe {
   transform: scale(1.05);
 }
 
-/* SWITCH */
+/* ---------- Switch ---------- */
 .switch {
   position: relative;
-  width: 70px;   /* avant 44px */
-  height: 36px;  /* avant 24px */
-  transition: transform 0.3s ease;
+  width: 70px;
+  height: 36px;
+  cursor: pointer;
 }
-
-.switch:hover {
-  transform: scale(1.05);
-}
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #333;
+  background: #333;
   border-radius: 34px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+  transition: background-color var(--transition);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
 }
-
 .slider:before {
   content: "";
   position: absolute;
-  height: 24px; /* avant 16px */
-  width: 24px;  /* avant 16px */
+  height: 24px;
+  width: 24px;
   left: 6px;
   bottom: 6px;
-  background-color: #fff;
+  background: #fff;
   border-radius: 50%;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform var(--transition);
 }
-
-/* état activé (violet) */
 input:checked + .slider {
-  background-color: var(--accent-contrast);
-  box-shadow: 0 0 10px rgba(85,91,181,0.5);
+  background: var(--accent-contrast);
+  box-shadow: 0 0 10px rgba(85, 91, 181, 0.5);
 }
-
 input:checked + .slider:before {
-  transform: translateX(34px); /* adapté à la nouvelle largeur */
-  background-color: #fff;
+  transform: translateX(34px);
 }
 
-/* labels actifs */
+/* ---------- Label actif ---------- */
 body.employeur-mode .mode-label.employeur {
   color: var(--accent-contrast);
 }
@@ -164,119 +301,87 @@ body:not(.employeur-mode) .mode-label.employe {
   color: var(--accent);
 }
 
-
-/* ---------- SECTION VISION ---------- */
+/* =========================================
+   SECTION VISION
+========================================= */
 #vision {
-  /* background: var(--bg-light); */
-  padding: 120px 20px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 60px;
-  border-top: 1px solid #1a1a1a;
-  border-bottom: 1px solid #1a1a1a;
-}
-
-#vision .bloc {
-  flex: 1 1 250px;
-  max-width: 300px;
-  text-align: left;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 24px;
+  padding: 120px 20px;
+  text-align: center;
 }
 
 #vision h3 {
-  font-size: 1.2rem;
+  font-size:1.2rem;
+  font-weight: 400;
   color: var(--text-light);
-  margin-bottom: 8px;
-  font-weight: 600;
+  text-transform: none;
+    transition: color 0.4s ease, opacity 0.4s ease;
+  letter-spacing: 0.3px;
+
 }
 
-#vision p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.5;
-}
 
-.gradient-employeur {
-    background: linear-gradient(252deg, var(--accent-contrast), #111);
-    background-size: 100% 100%;
-
-    -webkit-animation: AnimationName 3s ease infinite;
-    -moz-animation: AnimationName 3s ease infinite;
-    animation: AnimationName 3s ease infinite;
-}
+/* Gradients dynamiques */
 .gradient-employe {
-    background: linear-gradient(252deg, #1a1a1a, #111);
-    background-size: 100% 100%;
-
-    -webkit-animation: AnimationName 3s ease infinite;
-    -moz-animation: AnimationName 3s ease infinite;
-    animation: AnimationName 3s ease infinite;
-    color:black;
+  background: linear-gradient(252deg, #1a1a1a, #111);
+  animation: gradientShift 3s ease infinite;
+}
+.gradient-employeur {
+  background: linear-gradient(252deg, var(--accent-contrast), #111);
+  animation: gradientShift 3s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 37% 0%; }
+  50% { background-position: 64% 100%; }
+  100% { background-position: 37% 0%; }
 }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:37% 0%}
-    50%{background-position:64% 100%}
-    100%{background-position:37% 0%}
+/* Animation de transition */
+.fade-out {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-@-moz-keyframes AnimationName {
-    0%{background-position:37% 0%}
-    50%{background-position:64% 100%}
-    100%{background-position:37% 0%}
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
-@keyframes AnimationName {
-    0%{background-position:37% 0%}
-    50%{background-position:64% 100%}
-    100%{background-position:37% 0%}
-}
-/* ---------- SECTION PROFIL ---------- */
+
+/* =========================================
+   SECTION PROFIL
+========================================= */
 #profil {
   background: var(--bg-medium);
   padding: 140px 20px;
   text-align: center;
 }
-
 #profil h2 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 16px;
-  color: var(--text-light);
 }
-
 #profil .description {
   color: var(--text-muted);
   font-size: 1.1rem;
   margin-bottom: 50px;
 }
 
-#profil .form-placeholder {
-  margin: 0 auto;
-  padding: 50px;
-  max-width: 600px;
-  border: 1px dashed var(--accent);
-  border-radius: var(--radius);
-  color: var(--accent);
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.02);
-  font-family: "Inter", sans-serif;
-}
-
-
 /* ---------- FORMULAIRES ---------- */
 .form-container {
   max-width: 700px;
   margin: 40px auto 0;
-  position: relative;
 }
-
 .form-demo {
   background: var(--bg-medium);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
   transition: all 0.4s ease;
 }
-
 .hidden {
   display: none;
 }
@@ -287,13 +392,11 @@ body:not(.employeur-mode) .mode-label.employe {
   margin-bottom: 20px;
   text-align: left;
 }
-
 .input-group label {
   font-size: 0.9rem;
   color: var(--accent);
   margin-bottom: 6px;
 }
-
 .input-group input,
 .input-group select,
 .input-group textarea {
@@ -304,193 +407,78 @@ body:not(.employeur-mode) .mode-label.employe {
   padding: 12px 14px;
   font-size: 0.95rem;
   outline: none;
-  transition: border 0.3s ease;
-  font-family: "Inter", sans-serif;
+  transition: border var(--transition);
 }
-
 .input-group textarea {
   resize: none;
   height: 100px;
 }
-
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
   border-color: var(--accent);
 }
-
 .input-group input::placeholder,
 .input-group textarea::placeholder {
   color: #6d6d6d;
-  font-size: 0.95rem;
-}
-.cta-form {
-  display: inline-block;
-  color:var(--accent);
-  width: 100%;
-  padding: 14px;
-  border: 1px solid var(--accent);
-  border-radius: 50px;
-  background: var(--bg-medium);
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size:var(--text-light);
-  padding-top:1rem;
-  margin-top:1rem;
 }
 
+/* ---------- Bouton formulaire ---------- */
+.cta-form {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 50px;
+  color: var(--accent);
+  background: var(--bg-medium);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transition);
+}
 .cta-form:hover {
   background: var(--accent);
   color: #000;
 }
 
-/* ---------- MODE EMPLOYEUR ---------- */
-/* Mode employeur */
-body.employeur-mode .form-demo {
-  background: var(--bg-medium);
-}
-
-body.employeur-mode #profil-titre {
-  color: #fff;
-}
-
-body.employeur-mode .input-group label {
-  color: #9499db;
-}
-
-body.employeur-mode .cta-form {
-  background: #555BB5;
-  color: #fff;
-}
-
-/* ---------- SECTION PREMIUM ---------- */
+/* =========================================
+   SECTION PREMIUM
+========================================= */
 .section-premium {
   background: var(--bg-dark);
   padding: 120px 20px;
   text-align: center;
   border-top: 1px solid #222;
 }
-
 .section-premium h2 {
+  font-family: "Jomolhari", serif;
   font-size: 3rem;
   font-weight: 200;
   color: var(--text-light);
-  font-family:"Jomolhari", serif;
 }
-
 .premium-slogan {
   margin-top: 10px;
   color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 70px;
 }
-
 .icon-premium {
   width: 34px;
   height: 34px;
-  vertical-align: middle;
   margin-left: 6px;
+  vertical-align: middle;
   filter: brightness(1.2);
-  transform: translateY(-2px);
-  transition: transform 0.3s ease, filter 0.3s ease;
-  color: var(--premium); /* doré vif */
-  font-size:2rem;
+  transition: transform var(--transition), filter var(--transition);
 }
-
 .section-premium h2:hover .icon-premium {
   transform: translateY(-3px) scale(1.05);
   filter: brightness(1.4);
 }
 
-
-/* ---------- PREMIUM CARDS ---------- */
-/* .premium-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.premium-card {
-  background: #111;
-  border: 1px solid #222;
-  border-radius: var(--radius);
-  padding: 40px 30px;
-  width: 320px;
-  text-align: left;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  
-}
-
-.premium-card:hover {
-  border-color: var(--premium);
-}
-
-.premium-card.active {
-  border-color: var(--premium);
-  background: #151515;
-}
-
-.premium-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  color: var(--text-light);
-}
-
-.price {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--premium);
-}
-
-.premium-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px;
-}
-
-.premium-card li {
-  margin: 10px 0;
-  color: var(--text-muted);
-  font-size: 1rem;
-} */
-
-/* ---------- BUTTONS ---------- */
-.cta-premium,
-.cta-premium-outline {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
-  letter-spacing: 0.3px;
-  width:200px;
-  text-align: center;
-}
-
-.cta-premium {
-  background: var(--premium);
-  color: #000;
-  border: none;
-}
-
-.cta-premium:hover {
-  opacity: 0.9;
-}
-
-.cta-premium-outline {
-  border: 1px solid var(--premium);
-  color: var(--premium);
-  background: transparent;
-}
-
-/* ---------- FOOTER ---------- */
+/* =========================================
+   FOOTER
+========================================= */
 footer {
   text-align: center;
   padding: 40px;
@@ -499,26 +487,86 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ---------- MODE EMPLOYEUR ---------- */
+/* =========================================
+   MODE EMPLOYEUR (toggle actif)
+========================================= */
 body.employeur-mode {
-  --accent: var(--accent-contrast); /* violet pour CTA, bordures */
+  --accent: var(--accent-contrast);
+}
+
+body.employeur-mode .input-group label {
+  color: #9499db;
+}
+
+body.employeur-mode .cta-form {
+  background: var(--accent-contrast);
+  color: #fff;
+  border-color: var(--accent-contrast);
 }
 
 body.employeur-mode .cta,
 body.employeur-mode .cta-premium {
-  background: var(--bg-dark);
+  background: transparent;
   color: #9499db;
   border-color: var(--accent);
 }
-
-body.employeur-mode .cta:hover,
-body.employeur-mode .cta-premium:hover {
+body.employeur-mode .cta:hover {
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
 }
 
-body.employeur-mode .cta-premium-outline {
-  border-color: var(--accent);
-  color: var(--accent);
+/* =========================================
+   SWITCH BRIGADE (Apple-style personnalisé)
+========================================= */
+/* Switch Brigade — scalable */
+.switch-brigade {
+  /* Change juste cette valeur pour ajuster la taille globale */
+  --size: 26px; /* ex: 20px petit, 26px moyen, 32px grand */
+
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 20;
+  width: calc(var(--size) * 2);
+  height: var(--size);
+}
+
+.switch-brigade input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* --- slider --- */
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #bbb;
+  border-radius: 999px;
+  box-shadow: inset 0 4px 4px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- bulle --- */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: calc(var(--size) - 6px);
+  width: calc(var(--size) - 6px);
+  left: 3px;
+  top: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* --- état ON --- */
+input:checked + .slider {
+  background-color: rgba(114, 220, 103, 0.9);
+  box-shadow: inset 0 4px 15px #276420;
+}
+
+/* --- déplacement du bouton --- */
+input:checked + .slider::before {
+  transform: translateX(calc(var(--size)));
 }
